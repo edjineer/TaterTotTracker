@@ -174,7 +174,7 @@ code {
 }
 
 .potato-image {
-  max-width: 200px;
+  max-width: 400px;
   height: auto;
   border: 2px solid #ffc107; /* Yellow border */
   border-radius: 8px;

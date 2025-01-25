@@ -61,6 +61,8 @@ const App: React.FC = () => {
   // Find the selected potato's image path
   const selectedPotato = potatoData.find((potato) => potato.displayName === selectedPotatoUnit);
   const potatoImagePath = selectedPotato?.img || '';
+  const minImgSize: number = week * 10;
+  
 
   return (
     <div className="App">
@@ -113,6 +115,7 @@ const App: React.FC = () => {
           <img
             src={potatoImagePath}
             alt={`${selectedPotatoUnit}`}
+            width={minImgSize}
             className="potato-image"
           />
         </div>
