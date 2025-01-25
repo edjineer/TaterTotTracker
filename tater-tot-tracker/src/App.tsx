@@ -10,7 +10,7 @@ interface FetusSize {
 
 const App: React.FC = () => {
   const [week, setWeek] = useState<number>(0); // Initialize to null
-  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>('Russet Potato'); // Track selected potato unit, hard coded for now
+  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>(''); // Track selected potato unit, hard coded for now
   const [size, setSize] = useState<FetusSize>({
     weeks: 0,
     sizeInPotatoes: '',
@@ -58,6 +58,9 @@ const App: React.FC = () => {
     }
   };
 
+  // Find the selected potato's image path
+  const selectedPotato = potatoData.find((potato) => potato.displayName === selectedPotatoUnit);
+  const potatoImagePath = selectedPotato?.img || '';
 
   return (
     <div className="App">
@@ -69,8 +72,8 @@ const App: React.FC = () => {
         {/* Potato Unit Buttons */}
         {potatoData.map((potato) => (
           <button
+            key={potato.displayName}
             onClick={() => handlePotatoUnitChange(potato.displayName)}
-            className={`p-2 m-2 border rounded ${selectedPotatoUnit === potato.displayName ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
           >
             {potato.displayName}
           </button>
@@ -78,7 +81,7 @@ const App: React.FC = () => {
       </div>
 
       {/* Week Input */}
-      <div>
+      <div className="flex-container">
         <label>Enter week number: </label>
         <input
           type="number"
@@ -92,10 +95,10 @@ const App: React.FC = () => {
       </div>
 
       {/* Display Baby Size */}
-      <div>
+      <div className="flex-container">
         {week === 0 ? (
           <p>
-            Enter your weeks to start potatoing!
+            Enter your weeks to measure your baby in the most important unit of all: potatoes!
           </p>
         ) : (
           <p>
@@ -103,7 +106,20 @@ const App: React.FC = () => {
           </p>
         )}
       </div>
-      </div>
+
+      {/* Display Potato Image */}
+      {potatoImagePath && (
+        <div className="flex-container">
+          <img
+            src={potatoImagePath}
+            alt={`${selectedPotatoUnit}`}
+            className="potato-image"
+          />
+        </div>
+      )}
+
+      {/* Show Potato Baby Picture*/}
+    </div>
   );
 };
 
