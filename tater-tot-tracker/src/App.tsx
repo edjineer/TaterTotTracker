@@ -62,16 +62,20 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <h1>Tater Tot Tracker</h1>
+      <h2>Track your baby's size in potatoes!</h2>
 
-      {/* Potato Unit Buttons */}
-      {potatoData.map((potato) => (
-        <button
-          onClick={() => handlePotatoUnitChange(potato.displayName)}
-          className={`p-2 m-2 border rounded ${selectedPotatoUnit === potato.displayName ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
-        >
-          {potato.displayName}
-        </button>
-      ))}
+
+      <div className="flex-container">
+        {/* Potato Unit Buttons */}
+        {potatoData.map((potato) => (
+          <button
+            onClick={() => handlePotatoUnitChange(potato.displayName)}
+            className={`p-2 m-2 border rounded ${selectedPotatoUnit === potato.displayName ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+          >
+            {potato.displayName}
+          </button>
+        ))}
+      </div>
 
       {/* Week Input */}
       <div>

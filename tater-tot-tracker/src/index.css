@@ -4,16 +4,171 @@
 @tailwind utilities;
 
 
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+
+Reset some default browser styles
+body, h1, p, button, input {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Apply a global font */
+body {
+  font-family: 'Poppins', sans-serif; /* Add a modern font from Google Fonts */
+  background-color: #512507; /* Light background color */
+  color: #333; /* Default text color */
+  line-height: 1.6; /* Better readability */
+  padding: 20px;
+}
+
+button {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #b4975f; /* Blue button color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #b4985f8a; /* Darker blue on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+button:active {
+  transform: scale(0.95); /* Shrink slightly on click */
+}
+
+button.selected {
+  background-color: #28a745; /* Green for selected button */
+}
+
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100px; /* Fixed width */
+}
+
+input[type="number"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow */
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #b4975f;
+  margin-bottom: 10px;
+  text-align: center;
+}
+h2 {
+  font-size: 1.0rem;
+  color: #b4975f;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+h1 span {
+  color: #a74428; /* Different color for "Tater Tot Tracker" keyword */
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto; /* Center the app */
+  padding: 20px;
+  background-color: #b62b2b44;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+div {
+  margin-bottom: 20px;
+}
+button.potato-button {
+  background-color: #ffc107; /* Yellow for potato theme */
+  color: #212529;
+  border: 2px solid #ffc107;
+  border-radius: 50px; /* Round buttons */
+  padding: 8px 16px;
+  margin: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+button.potato-button:hover {
+  background-color: #e0a800;
+  border-color: #e0a800;
+}
+
+button.potato-button.selected {
+  background-color: #28a745; /* Green for selected potato button */
+  color: #fff;
+}
+
+p.message {
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  color: #6c757d;
+  margin-top: 20px;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+#button-family
+{
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.flex-container{
+  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+  
+  justify-content: center;
+  align-items: center;
+  
+  /* width: 400px; */
+  /* height: 200px; */
+  /* background-color: #3498db; */
+}
+
