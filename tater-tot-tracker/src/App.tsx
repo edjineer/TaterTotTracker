@@ -10,7 +10,7 @@ interface FetusSize {
 
 const App: React.FC = () => {
   const [week, setWeek] = useState<number>(0); // Initialize to null
-  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>(''); // Track selected potato unit, hard coded for now
+  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>('Russet Potato'); // Track selected potato unit, hard coded for now
   const [size, setSize] = useState<FetusSize>({
     weeks: 0,
     sizeInPotatoes: '',
@@ -76,6 +76,7 @@ const App: React.FC = () => {
           <button
             key={potato.displayName}
             onClick={() => handlePotatoUnitChange(potato.displayName)}
+            className={selectedPotatoUnit === potato.displayName ? 'selected-button' : 'unselected-button'}
           >
             {potato.displayName}
           </button>
@@ -104,7 +105,7 @@ const App: React.FC = () => {
           </p>
         ) : (
           <p>
-            At {size.weeks} weeks, your baby is about {size.sizeInPotatoes}.
+            At <strong>{size.weeks} weeks</strong>, your baby is about <strong>{size.sizeInPotatoes}</strong>.
           </p>
         )}
       </div>

@@ -37,14 +37,14 @@ button {
   font-weight: bold;
   color: #fff;
   background-color: #b4975f; /* Blue button color */
-  border: none;
+  border: solid 1px #090900;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #b4985f8a; /* Darker blue on hover */
+  background-color: #b4985f8a;
   transform: scale(1.05); /* Slight zoom effect */
 }
 
@@ -52,7 +52,7 @@ button:active {
   transform: scale(0.95); /* Shrink slightly on click */
 }
 
-button.selected {
+button.focus {
   background-color: #28a745; /* Green for selected button */
 }
 
@@ -109,10 +109,16 @@ label {
 div {
   margin-bottom: 20px;
 }
+
+.selected-button {
+  background-color: #764508; /* Green */
+  color: white;
+}
+
 button.potato-button {
   background-color: #ffc107; /* Yellow for potato theme */
   color: #212529;
-  border: 2px solid #ffc107;
+  border: 2px solid #040300;
   border-radius: 50px; /* Round buttons */
   padding: 8px 16px;
   margin: 5px;
@@ -121,13 +127,8 @@ button.potato-button {
 }
 
 button.potato-button:hover {
-  background-color: #e0a800;
+  background-color: #764508;
   border-color: #e0a800;
-}
-
-button.potato-button.selected {
-  background-color: #28a745; /* Green for selected potato button */
-  color: #fff;
 }
 
 p.message {
@@ -167,10 +168,6 @@ code {
   
   justify-content: center;
   align-items: center;
-  
-  /* width: 400px; */
-  /* height: 200px; */
-  /* background-color: #3498db; */
 }
 
 .potato-image {
@@ -180,3 +177,9 @@ code {
   border-radius: 8px;
   margin-top: 20px;
 }
+
+strong
+{
+  color: #b4975f;
+}
+
