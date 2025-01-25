@@ -1,0 +1,6 @@
+[
+    { "name": "russet", "displayName": "Russet Potato", "avgGrams": 173, "pluralName": "Russet Potatoes" },
+    { "name": "red", "displayName": "Red Potato", "avgGrams": 148, "pluralName": "Red Potatoes" },
+    { "name": "mashed", "displayName": "Mashed Potatoes", "avgGrams": 1, "pluralName": "Grams of Mashed Potatoes" },
+    { "name": "hashBrown", "displayName": "Hash Brown", "avgGrams": 60, "pluralName": "Hash Browns" }
+]
