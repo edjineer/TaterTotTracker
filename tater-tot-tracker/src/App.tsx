@@ -9,11 +9,11 @@ interface FetusSize {
 }
 
 const App: React.FC = () => {
-  const [week, setWeek] = useState<number>(0); // Start with 16 weeks for the example
-  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>('Russet Potato'); // Track selected potato unit
+  const [week, setWeek] = useState<number>(0); // Initialize to null
+  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>('Russet Potato'); // Track selected potato unit, hard coded for now
   const [size, setSize] = useState<FetusSize>({
-    weeks: babyData.find((data) => data.week === week) ? week : 0, // If the week is not found, set the week to 0
-    sizeInPotatoes: "no potatoes :(", //Initalized value is silly, bc why not
+    weeks: 0,
+    sizeInPotatoes: '',
   });
 
   // Calculate the number of potatoes based on the week and potato unit
@@ -21,7 +21,7 @@ const App: React.FC = () => {
     const babyDataForWeek = babyData.find((data) => data.week === week);
     if (!babyDataForWeek) return 0;
     const potatoInfo = potatoData.find((potato) => potato.displayName === potatoUnit);
-    if (!potatoInfo) return 0;
+    if (!potatoInfo) return '0';
     const potatoValue = babyDataForWeek.weight / potatoInfo.avgGrams;
     return potatoValue.toFixed(2);
   };
@@ -29,30 +29,35 @@ const App: React.FC = () => {
   // Get the potato output string based on the week and potato unit
   const getPotatoOutputString = (week: number, potatoUnit: string) => {
     const potatoValue = calculatePotatos(week, potatoUnit);
-    if (potatoValue === 0) {
+    if (potatoValue === '0') {
       return 'Unknown size';
     }
     const potatoInfo = potatoData.find((potato) => potato.displayName === potatoUnit);
-    if (!potatoInfo) return 0;
+    if (!potatoInfo) return '0';
     else{return `${potatoValue} ${potatoInfo.pluralName}`;}
   }
 
   const handleWeekChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newWeek = parseInt(event.target.value, 10);
+    const value = event.target.value;
+    const newWeek = value === '' ? 0 : parseInt(value, 10);
+
     setWeek(newWeek);
     setSize({
       weeks: newWeek,
-      sizeInPotatoes: getPotatoOutputString(newWeek, selectedPotatoUnit),
+      sizeInPotatoes: newWeek ? getPotatoOutputString(newWeek, selectedPotatoUnit) : '',
     });
   };
 
   const handlePotatoUnitChange = (potatoUnit: string) => {
     setSelectedPotatoUnit(potatoUnit);
-    setSize({
-      weeks: week,
-      sizeInPotatoes: getPotatoOutputString(week, potatoUnit),
-    });
+    if (week !== 0) {
+      setSize({
+        weeks: week,
+        sizeInPotatoes: getPotatoOutputString(week, potatoUnit),
+      });
+    }
   };
+
 
   return (
     <div className="App">
@@ -76,16 +81,25 @@ const App: React.FC = () => {
           value={week}
           onChange={handleWeekChange}
           className="border rounded p-2"
+          min={4} //Pregnancy first known at 4 weeks
+          max={40} //Most pregnancies last 40 weeks
+          step={1} 
         />
       </div>
 
       {/* Display Baby Size */}
       <div>
-        <p>
-          At {size.weeks} weeks, your baby is about {size.sizeInPotatoes}
-        </p>
+        {week === 0 ? (
+          <p>
+            Enter your weeks to start potatoing!
+          </p>
+        ) : (
+          <p>
+            At {size.weeks} weeks, your baby is about {size.sizeInPotatoes}.
+          </p>
+        )}
       </div>
-    </div>
+      </div>
   );
 };
 
