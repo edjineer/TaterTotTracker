@@ -106,7 +106,7 @@ input[type='number'] {
 }
 
 h1 {
-  font-family: 'Chewy';
+  font-family: 'Chewy', sans-serif;
   font-size: 3rem;
   font-weight: bold;
   text-align: center;
