@@ -25,7 +25,7 @@ input {
 /* Apply a global font */
 body {
   font-family: 'Poppins', sans-serif; /* Add a modern font from Google Fonts */
-  background-color: #333; /*#512507;*/ 
+  background-color: #333; /*#512507;*/
   color: #fdfafa; /* Default text color */
   line-height: 1.6; /* Better readability */
   padding: 20px;
@@ -134,7 +134,7 @@ h1 span {
   max-width: 800px;
   margin: 0 auto; /* Center the app */
   padding: 20px;
-  background-color: #512507;/*#b62b2b44*/;
+  background-color: #512507; /*#b62b2b44*/
   border: 1px solid #dee2e6;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -249,7 +249,8 @@ strong {
   }
 }
 
-html, body {
+html,
+body {
   height: 100%;
   margin: 0;
   display: flex;
@@ -280,4 +281,51 @@ html, body {
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 50%;
+  height: 6px;
+  background: #b4975f; /* Slider track color */
+  border-radius: 5px;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  margin: 20px 0;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #764508; /* Slider thumb color */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: #b4975f; /* Hover color */
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #764508;
+  cursor: pointer;
+}
+
+.slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: -10px;
+}
+
+.slider-tick {
+  font-size: 12px;
+  color: #fdfafa;
 }

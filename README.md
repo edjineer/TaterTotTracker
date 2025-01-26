@@ -23,6 +23,7 @@ An app to describe growing baby size, exclusively in units of Potato.
 * BingAI Image Generator continues to impress, and you can get some solid consistent images of a similar style with similar prompts
 * Scaling through json files is the way to go
 * Github Kanban Project Planning tool is great. Here is a link to the [Kanban Board from development](https://github.com/users/edjineer/projects/1/views/1).
+* Using CloudFront, S3, and ACM for [Hosting the Site on AWS](https://www.youtube.com/watch?v=YEIuuVKIy8U)
 
 ## Linting
 

@@ -43,16 +43,11 @@ const App: React.FC = () => {
     }
   };
 
-  const handleWeekChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
-    const newWeek = value === '' ? 0 : parseInt(value, 10);
-
+  const handleWeekChange = (newWeek: number) => {
     setWeek(newWeek);
     setSize({
       weeks: newWeek,
-      sizeInPotatoes: newWeek
-        ? getPotatoOutputString(newWeek, selectedPotatoUnit)
-        : '',
+      sizeInPotatoes: getPotatoOutputString(newWeek, selectedPotatoUnit),
     });
   };
 
@@ -95,18 +90,19 @@ const App: React.FC = () => {
         ))}
       </div>
 
-      {/* Week Input */}
+      {/* Slider for Week Selection */}
       <div className="flex-container">
-        <label>Enter week number: </label>
+        <label htmlFor="week-slider">Select week: </label>
         <input
-          type="number"
+          id="week-slider"
+          type="range"
+          min={4}
+          max={40}
           value={week}
-          onChange={handleWeekChange}
-          className="border rounded p-2"
-          min={4} //Pregnancy first known at 4 weeks
-          max={40} //Most pregnancies last 40 weeks
-          step={1}
+          onChange={(e) => handleWeekChange(parseInt(e.target.value, 10))}
+          className="slider"
         />
+        <span>{week} weeks</span>
       </div>
 
       {/* Display Baby Size */}
