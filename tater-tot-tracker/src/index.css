@@ -30,17 +30,21 @@ body {
 }
 
 button {
-  display: inline-block;
+  display: inline-flex; /* Ensure buttons stay inline, but flex */
   padding: 10px 20px;
   margin: 5px;
   font-size: 16px;
   font-weight: bold;
   color: #fff;
-  background-color: #b4975f; /* Blue button color */
+  background-color: #b4975f;
   border: solid 1px #090900;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  width: auto; /* Allow the button width to adjust based on content */
+  min-width: 120px; /* Minimum width for mobile */
+  justify-content: center;
+  text-align: center;
 }
 
 button:hover {
@@ -56,6 +60,14 @@ button.focus {
   background-color: #28a745; /* Green for selected button */
 }
 
+@media (max-width: 600px) {
+  button {
+    font-size: 14px; /* Smaller text on small screens */
+    padding: 8px 16px;
+    min-width: 100px; /* Adjust the minimum width */
+  }
+}
+
 input[type="number"] {
   padding: 10px;
   font-size: 16px;
@@ -66,16 +78,38 @@ input[type="number"] {
   width: 100px; /* Fixed width */
 }
 
-input[type="number"]:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Light blue glow */
+input[type="number"] {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%; /* Full width on smaller screens */
+  max-width: 200px; /* Set a max width to avoid overly stretched inputs */
+}
+
+@media (max-width: 600px) {
+  input[type="number"] {
+    font-size: 14px; /* Smaller text on small screens */
+    width: 80%; /* Adjust width for smaller screens */
+  }
 }
 
 h1 {
-  font-size: 2.5rem;
-  color: #b4975f;
-  margin-bottom: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  font-weight: bold;
   text-align: center;
+  background: linear-gradient(45deg, #ff6f00, #d32f2f);
+  background-clip: text;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  animation: bounce 1s ease-in-out infinite;
+  color: #eda348
 }
 h2 {
   font-size: 1.0rem;
@@ -163,23 +197,49 @@ code {
     monospace;
 }
 
-.flex-container{
-  display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
-  
+.flex-container {
+  display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+@media (max-width: 600px) {
+  .flex-container {
+    flex-direction: column; /* Stack the elements vertically on small screens */
+    width: 100%; /* Ensure full width on small screens */
+  }
 }
 
 .potato-image {
-  max-width: 400px;
+  max-width: 100%; /* Make the image responsive */
   height: auto;
-  border: 2px solid #ffc107; /* Yellow border */
+  border: 2px solid #ffc107;
   border-radius: 8px;
   margin-top: 20px;
 }
 
+@media (max-width: 600px) {
+  .potato-image {
+    max-width: 90%; /* Limit image width on small screens */
+  }
+}
 strong
 {
   color: #b4975f;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2rem; /* Adjust heading font size for mobile */
+  }
+
+  h2 {
+    font-size: 1.2rem; /* Adjust subtitle font size for mobile */
+  }
+
+  p {
+    font-size: 1rem; /* Adjust paragraph font size */
+  }
 }
 
