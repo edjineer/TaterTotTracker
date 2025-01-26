@@ -2,10 +2,20 @@
 
 An app to describe growing baby size, exclusively in units of Potato.
 
-## How to Run
+## Visit it on the Web
 
-`npm start` from the tater-tot-tracker directory.
+[www.tater-tot-baby-tracker.link](https://www.tater-tot-baby-tracker.link)
 
+## How to Run Locally
+
+1. Clone the Repo
+2. Run `npm start` from the tater-tot-tracker directory
+
+### Run the Linter and Formatter
+
+`npm run lint:fix`
+
+`npm run format`
 
 ## References
 
@@ -15,6 +25,8 @@ An app to describe growing baby size, exclusively in units of Potato.
 * Images Created with Bing AI Image Generator
   * Prompt: simple cartoon [POTATO TYPE] that has two eyes and a diaper, looks cute and like a baby
 * Extensions: ESLint and Prettier
+* Guide for Hooking up [S3, Cloudfront, and ACM](https://dev.to/oayanda/static-website-setup-on-amazon-cloud-using-cloudfront-s3-route53-acm-for-ssl-44ij)
+* Using CloudFront, S3, and ACM for [Hosting the Site on AWS](https://www.youtube.com/watch?v=YEIuuVKIy8U)
 
 ## Lessons Learned During the Project
 
@@ -23,10 +35,5 @@ An app to describe growing baby size, exclusively in units of Potato.
 * BingAI Image Generator continues to impress, and you can get some solid consistent images of a similar style with similar prompts
 * Scaling through json files is the way to go
 * Github Kanban Project Planning tool is great. Here is a link to the [Kanban Board from development](https://github.com/users/edjineer/projects/1/views/1).
-* Using CloudFront, S3, and ACM for [Hosting the Site on AWS](https://www.youtube.com/watch?v=YEIuuVKIy8U)
-
-## Linting
-
-`npm run lint:fix`
-
-`npm run format`
+* AWS Bucket Policies matter, and it matters to update it after hooking it up to cloudfront
+* Registering a DNS costs money, and different top-level-domains have different hosting rates
