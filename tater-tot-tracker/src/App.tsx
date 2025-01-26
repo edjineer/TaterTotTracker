@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import babyData from './babyData.json';
-import potatoData from './potatoData.json'; 
-
+import potatoData from './potatoData.json';
 
 interface FetusSize {
   weeks: number;
@@ -10,7 +9,8 @@ interface FetusSize {
 
 const App: React.FC = () => {
   const [week, setWeek] = useState<number>(0); // Initialize to null
-  const [selectedPotatoUnit, setSelectedPotatoUnit] = useState<string>('Russet Potato'); // Track selected potato unit, hard coded for now
+  const [selectedPotatoUnit, setSelectedPotatoUnit] =
+    useState<string>('Russet Potato'); // Track selected potato unit, hard coded for now
   const [size, setSize] = useState<FetusSize>({
     weeks: 0,
     sizeInPotatoes: '',
@@ -20,7 +20,9 @@ const App: React.FC = () => {
   const calculatePotatos = (week: number, potatoUnit: string) => {
     const babyDataForWeek = babyData.find((data) => data.week === week);
     if (!babyDataForWeek) return 0;
-    const potatoInfo = potatoData.find((potato) => potato.displayName === potatoUnit);
+    const potatoInfo = potatoData.find(
+      (potato) => potato.displayName === potatoUnit,
+    );
     if (!potatoInfo) return '0';
     const potatoValue = babyDataForWeek.weight / potatoInfo.avgGrams;
     return potatoValue.toFixed(2);
@@ -32,10 +34,14 @@ const App: React.FC = () => {
     if (potatoValue === '0') {
       return 'Unknown size';
     }
-    const potatoInfo = potatoData.find((potato) => potato.displayName === potatoUnit);
+    const potatoInfo = potatoData.find(
+      (potato) => potato.displayName === potatoUnit,
+    );
     if (!potatoInfo) return '0';
-    else{return `${potatoValue} ${potatoInfo.pluralName}`;}
-  }
+    else {
+      return `${potatoValue} ${potatoInfo.pluralName}`;
+    }
+  };
 
   const handleWeekChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -44,7 +50,9 @@ const App: React.FC = () => {
     setWeek(newWeek);
     setSize({
       weeks: newWeek,
-      sizeInPotatoes: newWeek ? getPotatoOutputString(newWeek, selectedPotatoUnit) : '',
+      sizeInPotatoes: newWeek
+        ? getPotatoOutputString(newWeek, selectedPotatoUnit)
+        : '',
     });
   };
 
@@ -59,16 +67,16 @@ const App: React.FC = () => {
   };
 
   // Find the selected potato's image path
-  const selectedPotato = potatoData.find((potato) => potato.displayName === selectedPotatoUnit);
+  const selectedPotato = potatoData.find(
+    (potato) => potato.displayName === selectedPotatoUnit,
+  );
   const potatoImagePath = selectedPotato?.img || '';
   const minImgSize: number = week * 10;
-  
 
   return (
     <div className="App">
       <h1>Tater Tot Tracker</h1>
-      <h2>Track your baby's size in potatoes!</h2>
-
+      <h2>Track your baby&apos;s size in potatoes!</h2>
 
       <div className="flex-container">
         {/* Potato Unit Buttons */}
@@ -76,7 +84,11 @@ const App: React.FC = () => {
           <button
             key={potato.displayName}
             onClick={() => handlePotatoUnitChange(potato.displayName)}
-            className={selectedPotatoUnit === potato.displayName ? 'selected-button' : 'unselected-button'}
+            className={
+              selectedPotatoUnit === potato.displayName
+                ? 'selected-button'
+                : 'unselected-button'
+            }
           >
             {potato.displayName}
           </button>
@@ -93,7 +105,7 @@ const App: React.FC = () => {
           className="border rounded p-2"
           min={4} //Pregnancy first known at 4 weeks
           max={40} //Most pregnancies last 40 weeks
-          step={1} 
+          step={1}
         />
       </div>
 
@@ -101,11 +113,13 @@ const App: React.FC = () => {
       <div className="flex-container">
         {week === 0 ? (
           <p>
-            Enter your weeks to measure your baby in the most important unit of all: potatoes!
+            Enter your weeks to measure your baby in the most important unit of
+            all: potatoes!
           </p>
         ) : (
           <p>
-            At <strong>{size.weeks} weeks</strong>, your baby is about as heavy as <strong>{size.sizeInPotatoes}</strong>.
+            At <strong>{size.weeks} weeks</strong>, your baby is about as heavy
+            as <strong>{size.sizeInPotatoes}</strong>.
           </p>
         )}
       </div>

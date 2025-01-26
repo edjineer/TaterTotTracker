@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -13,8 +12,11 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
-Reset some default browser styles
-body, h1, p, button, input {
+Reset some default browser styles body,
+h1,
+p,
+button,
+input {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -40,7 +42,9 @@ button {
   border: solid 1px #090900;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
   width: auto; /* Allow the button width to adjust based on content */
   min-width: 120px; /* Minimum width for mobile */
   justify-content: center;
@@ -68,29 +72,33 @@ button.focus {
   }
 }
 
-input[type="number"] {
+input[type='number'] {
   padding: 10px;
   font-size: 16px;
   border: 2px solid #ced4da;
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   width: 100px; /* Fixed width */
 }
 
-input[type="number"] {
+input[type='number'] {
   padding: 10px;
   font-size: 16px;
   border: 2px solid #ced4da;
   border-radius: 8px;
   outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   width: 100%; /* Full width on smaller screens */
   max-width: 200px; /* Set a max width to avoid overly stretched inputs */
 }
 
 @media (max-width: 600px) {
-  input[type="number"] {
+  input[type='number'] {
     font-size: 14px; /* Smaller text on small screens */
     width: 80%; /* Adjust width for smaller screens */
   }
@@ -109,10 +117,10 @@ h1 {
   padding: 10px;
   border-radius: 10px;
   animation: bounce 1s ease-in-out infinite;
-  color: #eda348
+  color: #eda348;
 }
 h2 {
-  font-size: 1.0rem;
+  font-size: 1rem;
   color: #b4975f;
   margin-bottom: 20px;
   text-align: center;
@@ -177,8 +185,7 @@ p.message {
   animation: fadeIn 0.5s ease-in-out;
 }
 
-#button-family
-{
+#button-family {
   display: flex;
   justify-content: center;
 }
@@ -224,8 +231,7 @@ code {
     max-width: 90%; /* Limit image width on small screens */
   }
 }
-strong
-{
+strong {
   color: #b4975f;
 }
 
@@ -242,4 +248,3 @@ strong
     font-size: 1rem; /* Adjust paragraph font size */
   }
 }
-

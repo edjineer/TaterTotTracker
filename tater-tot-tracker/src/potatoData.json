@@ -1,6 +1,30 @@
 [
-    { "name": "russet", "displayName": "Russet Potato", "avgGrams": 173, "pluralName": "Russet Potatoes", "img": "/images/russet.jpg" },
-    { "name": "red", "displayName": "Red Potato", "avgGrams": 148, "pluralName": "Red Potatoes", "img": "/images/red.jpg" },
-    { "name": "mashed", "displayName": "Mashed Potatoes", "avgGrams": 1, "pluralName": "Grams of Mashed Potatoes", "img": "/images/mashed.jpg" },
-    { "name": "hashBrown", "displayName": "Hash Brown", "avgGrams": 60, "pluralName": "Hash Browns", "img": "/images/hashbrown.jpg" }
+  {
+    "name": "russet",
+    "displayName": "Russet Potato",
+    "avgGrams": 173,
+    "pluralName": "Russet Potatoes",
+    "img": "/images/russet.jpg"
+  },
+  {
+    "name": "red",
+    "displayName": "Red Potato",
+    "avgGrams": 148,
+    "pluralName": "Red Potatoes",
+    "img": "/images/red.jpg"
+  },
+  {
+    "name": "mashed",
+    "displayName": "Mashed Potatoes",
+    "avgGrams": 1,
+    "pluralName": "Grams of Mashed Potatoes",
+    "img": "/images/mashed.jpg"
+  },
+  {
+    "name": "hashBrown",
+    "displayName": "Hash Brown",
+    "avgGrams": 60,
+    "pluralName": "Hash Browns",
+    "img": "/images/hashbrown.jpg"
+  }
 ]
