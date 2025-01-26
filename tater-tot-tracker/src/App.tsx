@@ -105,7 +105,7 @@ const App: React.FC = () => {
           </p>
         ) : (
           <p>
-            At <strong>{size.weeks} weeks</strong>, your baby is about <strong>{size.sizeInPotatoes}</strong>.
+            At <strong>{size.weeks} weeks</strong>, your baby is about as heavy as <strong>{size.sizeInPotatoes}</strong>.
           </p>
         )}
       </div>
