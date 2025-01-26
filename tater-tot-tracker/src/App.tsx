@@ -8,11 +8,11 @@ interface FetusSize {
 }
 
 const App: React.FC = () => {
-  const [week, setWeek] = useState<number>(0); // Initialize to null
+  const [week, setWeek] = useState<string>('0');
   const [selectedPotatoUnit, setSelectedPotatoUnit] =
     useState<string>('Russet Potato'); // Track selected potato unit, hard coded for now
   const [size, setSize] = useState<FetusSize>({
-    weeks: 0,
+    weeks: parseInt(week, 10),
     sizeInPotatoes: '',
   });
 
@@ -45,23 +45,35 @@ const App: React.FC = () => {
 
   const handleWeekChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    const newWeek = value === '' ? 0 : parseInt(value, 10);
+    const rawWeekNumber = parseInt(value, 10);
+    if (rawWeekNumber > 40) {
+      setWeek('40'); // Clamp to maximum if greater than 40
+    } else {
+      setWeek(value);
+    }
+  };
 
-    setWeek(newWeek);
+  const handleBlur = () => {
+    let weekNumber = parseInt(week, 10);
+    if (isNaN(weekNumber) || weekNumber < 4) {
+      weekNumber = 4; // Clamp to minimum if less than 4
+    } else if (weekNumber > 40) {
+      weekNumber = 40; // Clamp to maximum if greater than 40
+    }
+    setWeek(weekNumber.toString());
     setSize({
-      weeks: newWeek,
-      sizeInPotatoes: newWeek
-        ? getPotatoOutputString(newWeek, selectedPotatoUnit)
-        : '',
+      weeks: weekNumber,
+      sizeInPotatoes: getPotatoOutputString(weekNumber, selectedPotatoUnit),
     });
   };
 
   const handlePotatoUnitChange = (potatoUnit: string) => {
     setSelectedPotatoUnit(potatoUnit);
-    if (week !== 0) {
+    const weekNum = parseInt(week, 10);
+    if (week !== '0') {
       setSize({
-        weeks: week,
-        sizeInPotatoes: getPotatoOutputString(week, potatoUnit),
+        weeks: weekNum,
+        sizeInPotatoes: getPotatoOutputString(weekNum, potatoUnit),
       });
     }
   };
@@ -71,7 +83,7 @@ const App: React.FC = () => {
     (potato) => potato.displayName === selectedPotatoUnit,
   );
   const potatoImagePath = selectedPotato?.img || '';
-  const minImgSize: number = week * 10;
+  const minImgSize: number = parseInt(week, 10) * 10;
 
   return (
     <div className="App">
@@ -102,18 +114,19 @@ const App: React.FC = () => {
           type="number"
           value={week}
           onChange={handleWeekChange}
+          onBlur={handleBlur}
           className="border rounded p-2"
-          min={4} //Pregnancy first known at 4 weeks
-          max={40} //Most pregnancies last 40 weeks
+          min={4}
+          max={40}
           step={1}
         />
       </div>
 
       {/* Display Baby Size */}
       <div className="flex-container">
-        {week === 0 ? (
+        {week === '0' ? (
           <p>
-            Enter your weeks to measure your baby in the most important unit of
+            Enter your weeks to measure your baby in the most exciting unit of
             all: potatoes!
           </p>
         ) : (
