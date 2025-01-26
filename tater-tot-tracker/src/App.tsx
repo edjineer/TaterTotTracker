@@ -135,8 +135,6 @@ const App: React.FC = () => {
           />
         </div>
       )}
-
-      {/* Show Potato Baby Picture*/}
     </div>
   );
 };

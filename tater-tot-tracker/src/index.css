@@ -25,7 +25,7 @@ input {
 /* Apply a global font */
 body {
   font-family: 'Poppins', sans-serif; /* Add a modern font from Google Fonts */
-  background-color: #512507; /* Light background color */
+  background-color: #333; /*#512507;*/ 
   color: #fdfafa; /* Default text color */
   line-height: 1.6; /* Better readability */
   padding: 20px;
@@ -134,7 +134,7 @@ h1 span {
   max-width: 800px;
   margin: 0 auto; /* Center the app */
   padding: 20px;
-  background-color: #b62b2b44;
+  background-color: #512507;/*#b62b2b44*/;
   border: 1px solid #dee2e6;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -247,4 +247,37 @@ strong {
   p {
     font-size: 1rem; /* Adjust paragraph font size */
   }
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 5px 0; /* Small padding for the footer */
+  font-size: 14px;
+  z-index: 10;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+}
+
+.footer a {
+  color: #ffc107;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
 }
